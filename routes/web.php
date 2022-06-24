@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PagesController::class, 'index'])->name('pages.index');
+Route::get('/about', [PagesController::class, 'about'])->name('pages.about');
+Route::get('/contact', [PagesController::class,'contaact'])->name('pages.contact');
 
 Auth::routes();
 
